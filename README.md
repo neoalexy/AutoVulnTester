@@ -1,1 +1,50 @@
-# Automated Vulnerability Tester
+# Automated Vulnerability Scanner
+This project is an automated security testing tool designed to detect common web vulnerabilities such as SQL Injection (SQLi), Cross-Site Scripting (XSS), and Brute Force attacks on web applications. 
+---
+
+## Table of Contents
+
+- [Overview](#overview)  
+- [Features](#features)  
+- [Core Components](#core-components)  
+- [Usage](#usage)  
+- [Report Generation](#report-generation)  
+- [Notifications](#notifications)  
+- [Future Enhancements](#future-enhancements)  
+
+---
+
+## Overview
+
+AutoVulnTester automates the scanning of web applications by injecting test payloads to check for SQLi, XSS, and Brute Force vulnerabilities. It integrates AI-based analysis to provide human-readable explanations and mitigation suggestions for each detected issue. The tool outputs structured JSON reports and can generate PDF summaries, enabling clear communication of security posture.
+
+---
+
+## Features
+
+- **SQL Injection detection:** Tests for typical SQL injection payloads and error patterns.  
+- **Cross-Site Scripting detection:** Injects XSS payloads and verifies their presence in responses.  
+- **Brute Force attack simulation:** Attempts login brute force using supplied credentials and password lists.  
+- **Vulnerability analysis:** Uses Hugging Face models to generate concise, beginner-friendly explanations and mitigation tips.  
+- **Report generation:** Outputs JSON and PDF reports detailing findings with confidence levels and payload information.  
+- **Slack notifications:** Optional alerting via Slack webhook on detected vulnerabilities.
+
+---
+
+## Core Components
+
+- **Scanner:** Handles all vulnerability detection tests using HTTP requests and payload injection.  
+- **Analyzer:** Interacts with AI models to generate vulnerability explanations and recommendations.  
+- **Reporter:** Creates PDF reports from scan results with clear formatting.  
+- **Notifier:** Sends alerts to Slack channels when vulnerabilities are detected.  
+- **CLI Interface:** Command-line tool to perform scans, generate reports, and optionally send notifications.
+
+---
+
+## Usage
+
+Run scans by executing the CLI tool with the target URL:
+
+```bash
+python cli.py <target_url> [--pdf] [--slack <webhook_url>]
+
